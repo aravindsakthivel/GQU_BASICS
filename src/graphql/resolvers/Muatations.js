@@ -20,7 +20,7 @@ const Mutation = {
     });
     return response.data;
   },
-  deletePost: async (parent, args) => {
+  deletePost: async (parent, args) => { 
     const response = await axios.delete(
       `http://localhost:3004/posts/${args.id}`
     );
