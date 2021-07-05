@@ -1,0 +1,71 @@
+"""
+for the return null is allowable use excalamation(!) to not accept null
+"""
+type Query {
+  agent(id: ID!): User!
+  agents: [User!]!
+  multiply(value: Int!): Int!
+  msg(value: [String!]!): String
+  posts: [Post!]!
+  post(id: ID!): Post!
+  pictures: [Picture!]!
+}
+
+type Mutation {
+  createAgent(data: CreateAgentInput): User!
+  createPost(
+    title: String!
+    content: String!
+    author: Int!
+    picture: Int!
+  ): Post!
+  deletePost(id: ID!): Boolean!
+  deleteAgent(id: ID!): Boolean!
+  updateAgent(
+    id: ID!
+    name: String
+    age: Int
+    married: Boolean
+    average: Float
+  ): User!
+}
+
+enum AgentStatus{
+  active
+  not_active
+  trainee
+  guest
+}
+
+input CreateAgentInput {
+  name: String!
+  age: Int!
+  married: Boolean
+  status: AgentStatus!
+}
+
+type Picture {
+  id: ID!
+  path: String!
+  author: User!
+  post: Post!
+}
+
+type User {
+  id: ID!
+  name: String!
+  age: Int!
+  married: Boolean
+  average: Float
+  posts: [Post!]!
+  pictures: [Picture!]!
+  status: AgentStatus
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+  picture: Picture!
+}
