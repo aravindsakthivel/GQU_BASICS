@@ -3,6 +3,8 @@ for the return null is allowable use excalamation(!) to not accept null
 """
 # union AnimalUnion = Dog | Cat
 
+"""union and interface are pretty much same"""
+
 interface Animal {
   animal: String
   name: String!
