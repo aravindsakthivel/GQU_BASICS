@@ -1,6 +1,26 @@
 """
 for the return null is allowable use excalamation(!) to not accept null
 """
+# union AnimalUnion = Dog | Cat
+
+interface Animal {
+  animal: String
+  name: String!
+}
+
+type Dog implements Animal{
+  animal: String
+  name: String!
+  hair: String!
+}
+
+type Cat implements Animal{
+  animal: String
+  name: String!
+  paws: String!
+}
+
+
 type Query {
   agent(id: ID!): User!
   agents: [User!]!
@@ -9,6 +29,7 @@ type Query {
   posts: [Post!]!
   post(id: ID!): Post!
   pictures: [Picture!]!
+  getAnimal: Animal!
 }
 
 type Mutation {
@@ -30,7 +51,7 @@ type Mutation {
   ): User!
 }
 
-enum AgentStatus{
+enum AgentStatus {
   active
   not_active
   trainee

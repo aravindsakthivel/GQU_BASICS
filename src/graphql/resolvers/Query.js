@@ -8,9 +8,8 @@ const Query = {
       );
       return response.data;
     } catch (error) {
-      return null
+      return null;
     }
-    
   },
   agents: async () => {
     const response = await axios.get("http://localhost:3004/users");
@@ -37,6 +36,25 @@ const Query = {
   pictures: async () => {
     const response = await axios.get(`http://localhost:3004/pictures`);
     return response.data;
+  },
+  getAnimal: () => {
+    let response;
+    let random = Math.floor(Math.random() * 6) + 1;
+    console.log(random)
+    if (random > 3) {
+      response = {
+        animal: "DOG",
+        name: "Captain",
+        hair: "lots",
+      };
+    } else {
+      response = {
+        animal: "CAT",
+        name: "Fluffy",
+        paws: "sharp",
+      };
+    }
+    return response;
   },
 };
 
